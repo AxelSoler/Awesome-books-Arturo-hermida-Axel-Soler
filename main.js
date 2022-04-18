@@ -11,12 +11,14 @@ const display = () => {
   div.innerHTML = '';
   for (let i = 0; i < books.length; i += 1) {
     const divList = document.createElement('div');
+    divList.classList.add('bookList');
     const name = document.createElement('h3');
     name.innerHTML = books[i].title;
     const aut = document.createElement('h3');
     aut.innerHTML = books[i].author;
     const remBtn = document.createElement('button');
     remBtn.innerHTML = 'Remove';
+    const line = document.createElement('hr');
 
     remBtn.addEventListener('click', () => {
       deleteItem(i);
@@ -26,6 +28,7 @@ const display = () => {
     divList.appendChild(name);
     divList.appendChild(aut);
     divList.appendChild(remBtn);
+    divList.appendChild(line);
 
     div.appendChild(divList);
   }
