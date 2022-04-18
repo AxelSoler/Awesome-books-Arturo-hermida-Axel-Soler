@@ -14,9 +14,12 @@ const addBook = (ev) => {
   console.warn('added', {books});
   let pre =document.querySelector('#msg pre');
   pre.textContent = '\n' + JSON.stringify(books, '\t', 2);
+
+  localStorage.setItem('listBooks', JSON.stringify(books));
   
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('addBtn').addEventListener('click', addBook)
 });
+
