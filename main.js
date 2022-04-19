@@ -4,6 +4,7 @@ class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
+    this.id = Math.random();
   }
 }
 class Books {
@@ -19,9 +20,9 @@ class Books {
 
   deleteItem(id) {
     const book = document.getElementById(id);
-    book.remove(id);
-    books.splice(id, 1);
-    localStorage.setItem('listBooks', JSON.stringify(this.data));
+    book.remove();
+    this.books.splice(id, 1);
+    localStorage.setItem('listBooks', JSON.stringify(this.books));
   }
 }
 
@@ -38,6 +39,7 @@ function getInput() {
 function display(bookObj) {
   const divList = document.createElement('div');
   divList.classList.add('bookList');
+  divList.setAttribute('id', bookObj.id);
   const name = document.createElement('h3');
   name.innerHTML = bookObj.title;
   const aut = document.createElement('h3');
@@ -45,6 +47,9 @@ function display(bookObj) {
   const remBtn = document.createElement('button');
   remBtn.innerHTML = 'Remove';
   const line = document.createElement('hr');
+
+  remBtn.addEventListener('click', () => bookList.deleteItem(bookObj.id));
+
   divList.appendChild(name);
   divList.appendChild(aut);
   divList.appendChild(remBtn);
@@ -60,9 +65,9 @@ addBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-    bookList.books = JSON.parse(localStorage.getItem('listBooks' || '""'));
+    bookList.books = JSON.parse(localStorage.getItem('listBooks' || '[]'));
     if(bookList.books === null) {
-      bookList.book = [];
+      bookList.books = [];
       return;
     };
     bookList.books.forEach((book) => display(book))
