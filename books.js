@@ -11,7 +11,7 @@ export default class Books {
   deleteItem(id) {
     const book = document.getElementById(id);
     book.remove();
-    this.books.splice(id, 1);
+    this.books = this.books.filter((bookObj) => bookObj.id !== id);
     localStorage.setItem('listBooks', JSON.stringify(this.books));
   }
 }
