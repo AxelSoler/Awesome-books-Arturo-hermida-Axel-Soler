@@ -41,16 +41,15 @@ function display(bookObj) {
   divList.classList.add('bookList');
   divList.setAttribute('id', bookObj.id);
   const name = document.createElement('h3');
-  name.innerHTML =`${bookObj.title} by ${bookObj.author}`;
+  name.innerHTML =`"${bookObj.title}" by ${bookObj.author}`;
   const remBtn = document.createElement('button');
+  remBtn.classList.add('remBtn');
   remBtn.innerHTML = 'Remove';
-  const line = document.createElement('hr');
 
   remBtn.addEventListener('click', () => bookList.deleteItem(bookObj.id));
 
   divList.appendChild(name);
   divList.appendChild(remBtn);
-  divList.appendChild(line);
   div.appendChild(divList);
 }
 
