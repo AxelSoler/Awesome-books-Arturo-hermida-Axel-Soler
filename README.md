@@ -26,18 +26,9 @@ To get a local copy up and running follow these simple example steps.
 ### Install
 * npm install
 
-### Usage
-N/A 
-
 ### Lint code
 * npm run webhint
 * npm run stylelint
-
-### Run tests
-N/A
-
-### Deployment
-N/A
 
 Working a lot! 
 
