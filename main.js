@@ -1,62 +1,46 @@
+import Book from './book.js';
+import Books from './books.js';
+
 const div = document.querySelector('.books');
+const bookList = new Books();
 
-let books = [];
+function display(bookObj) {
+  const divList = document.createElement('div');
+  divList.classList.add('bookList');
+  divList.setAttribute('id', bookObj.id);
+  const name = document.createElement('h3');
+  name.innerHTML = `"${bookObj.title}" by ${bookObj.author}`;
+  const remBtn = document.createElement('button');
+  remBtn.classList.add('remBtn');
+  remBtn.innerHTML = 'Remove';
 
-const deleteItem = (i) => {
-  books.splice(i, 1);
-  localStorage.setItem('listBooks', JSON.stringify(books));
-};
+  remBtn.addEventListener('click', () => bookList.deleteItem(bookObj.id));
 
-const display = () => {
-  div.innerHTML = '';
-  for (let i = 0; i < books.length; i += 1) {
-    const divList = document.createElement('div');
-    divList.classList.add('bookList');
-    const name = document.createElement('h3');
-    name.innerHTML = books[i].title;
-    const aut = document.createElement('h3');
-    aut.innerHTML = books[i].author;
-    const remBtn = document.createElement('button');
-    remBtn.innerHTML = 'Remove';
-    const line = document.createElement('hr');
+  divList.appendChild(name);
+  divList.appendChild(remBtn);
+  div.appendChild(divList);
+}
 
-    remBtn.addEventListener('click', () => {
-      deleteItem(i);
-      display();
-    });
-
-    divList.appendChild(name);
-    divList.appendChild(aut);
-    divList.appendChild(remBtn);
-    divList.appendChild(line);
-
-    div.appendChild(divList);
-  }
-};
-
-const addBook = (ev) => {
-  ev.preventDefault();
-
-  const book = {
-    title: document.querySelector('.inputTitle').value,
-    author: document.querySelector('.inputAuthor').value,
-  };
-
-  books.push(book);
+function getInput() {
+  const title = document.querySelector('.inputTitle').value;
+  const author = document.querySelector('.inputAuthor').value;
+  const book = new Book(title, author);
   document.querySelector('.addBook').reset();
+  return book;
+}
 
-  display();
-
-  localStorage.setItem('listBooks', JSON.stringify(books));
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('addBtn').addEventListener('click', addBook);
+const addBtn = document.getElementById('addBtn');
+addBtn.addEventListener('click', () => {
+  const book = getInput();
+  bookList.addBook(book);
+  display(book);
 });
 
 window.addEventListener('load', () => {
-  if (localStorage.getItem('listBooks')) {
-    books = JSON.parse(localStorage.getItem('listBooks'));
-    display();
+  bookList.books = JSON.parse(localStorage.getItem('listBooks' || '[]'));
+  if (bookList.books === null) {
+    bookList.books = [];
+    return;
   }
+  bookList.books.forEach((book) => display(book));
 });
