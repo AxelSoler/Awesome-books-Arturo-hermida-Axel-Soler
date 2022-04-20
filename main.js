@@ -2,6 +2,12 @@ import Book from './book.js';
 import Books from './books.js';
 
 const div = document.querySelector('.books');
+const awesome = document.querySelector('.awesome');
+const listBtn = document.getElementById('list');
+const formBtn = document.getElementById('add');
+const contactBtn = document.getElementById('contact');
+const divForm = document.querySelector('.addBook');
+const divContact = document.querySelector('.contact');
 const bookList = new Books();
 
 function display(bookObj) {
@@ -46,13 +52,6 @@ window.addEventListener('load', () => {
   bookList.books.forEach((book) => display(book));
 });
 
-const awesome = document.querySelector('.awesome');
-const listBtn = document.getElementById('list');
-const formBtn = document.getElementById('add');
-const contactBtn = document.getElementById('contact');
-const divForm = document.querySelector('.addBook');
-const divContact =  document.querySelector('.contact');
-
 listBtn.addEventListener('click', () => {
   awesome.classList.add('active');
   divForm.classList.remove('active');
@@ -60,24 +59,24 @@ listBtn.addEventListener('click', () => {
 });
 
 formBtn.addEventListener('click', () => {
-    divForm.classList.add('active');
-    awesome.classList.remove('active');
-    divContact.classList.remove('active');
+  divForm.classList.add('active');
+  awesome.classList.remove('active');
+  divContact.classList.remove('active');
 });
 
 contactBtn.addEventListener('click', () => {
-    divContact.classList.add('active');
-    divForm.classList.remove('active');
-    awesome.classList.remove('active');
+  divContact.classList.add('active');
+  divForm.classList.remove('active');
+  awesome.classList.remove('active');
 });
 
-let today = new Date();
+const today = new Date();
 
-let date = (today.getMonth()+1)+'-'+today.getDate() + '-' + today.getFullYear();
+const date = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
 
-let hours = today.getHours() + ":" + today.getMinutes();
+const hours = `${today.getHours()}:${today.getMinutes()}`;
 
-let dateTime = date+', '+hours;
+const dateTime = `${date}, ${hours}`;
 
 const time = document.getElementById('date');
 
