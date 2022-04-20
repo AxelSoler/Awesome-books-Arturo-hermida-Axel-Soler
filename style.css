@@ -10,6 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 85vh;
+  margin-top: 128px;
 }
 
 .addBook {
@@ -20,20 +22,24 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 12px;
-  width: 300px;
+  width: 50%;
 }
 
 .addBook input {
-  margin-top: 8px;
+  margin-top: 24px;
   border: 3px solid black;
+  height: 40px;
+  padding-left: 12px;
+  font-weight: bold;
 }
 
 .add {
-  margin-top: 8px;
+  margin-top: 24px;
   width: fit-content;
   padding: 2px 8px;
   border: 3px solid black;
   align-self: flex-end;
+  font-size: 24px;
 }
 
 .awesome {
@@ -43,6 +49,7 @@ body {
 .awesome.active {
   display: block;
   text-align: center;
+  width: 98%;
 }
 
 .books {
@@ -56,8 +63,8 @@ body {
 .bookList {
   display: flex;
   justify-content: space-between;
-  padding: 8px 4px;
-  width: 400px;
+  padding: 16px 8px;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -70,17 +77,14 @@ body {
   margin-top: 0;
 }
 
-hr {
-  width: 40%;
-  border: 1px solid black;
-}
-
 .remBtn {
   border: 3px solid black;
 }
 
 .subtitle {
   text-align: center;
+  justify-self: flex-start;
+  font-size: 48px;
 }
 
 .topBar {
@@ -91,9 +95,10 @@ hr {
 }
 
 .navBar {
+  position: fixed;
   border: 3px solid black;
   padding: 8px 0 8px 12px;
-  width: 100%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,11 +160,6 @@ footer h3 {
 
 .contact.active {
   display: block;
-}
-
-.contact h2 {
-  text-align: center;
-  font-size: 30px;
 }
 
 .contact h3 {
