@@ -13,28 +13,28 @@
       <h3>Awesome Books</h3>
       <div class="ulItems">
         <ul>
-          <li class="links"><a href="#">List</a></li>
-          <li class="links"><a href="#">Add new</a></li>
-          <li class="links"><a href="#">Contact</a></li>
+          <li class="links"><a href="#awesome" id="list">List</a></li>
+          <li class="links"><a href="#addbook" id="add">Add new</a></li>
+          <li class="links"><a href="#contact" id="contact">Contact</a></li>
         </ul>
       </div>      
     </nav>
   </div>
   <div class="container">
-    <h1>Awesome Books</h1>
+    <div class="awesome" id="awesome">
+    <h1>All Awesome Books</h1>
 
     <div class="books"></div>
+  </div>
 
-    <form class="addBook">
+    <form class="addBook" id="addbook">
       <hr>
       <h2 class="subtitle">Add a new book</h2>
       <input class="inputTitle" type="text" placeholder="Title">
       <input class="inputAuthor" type="text" placeholder="Author">
       <button id="addBtn" class="add" type="button">Add</button>
     </form>
-  </div>
-
-  <div class="contact">
+    <div class="contact" id="contact">
       <h2>Contact information</h2>
       <p>Do you have any questions or you just want to say "hello"? </p>
       <div class="reach">
@@ -46,6 +46,9 @@
       </ul>
     </div>
   </div>
+  </div>
+
+  
   <footer>
     <div>
       <h3>Copyright ...</h3>
