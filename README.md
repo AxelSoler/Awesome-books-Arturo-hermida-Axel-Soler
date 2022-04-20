@@ -9,7 +9,7 @@
 
 ## Live Demo (link webpage when Pull Request aproved and merge it)
 
-[Live Demo Link]((https://axelsoler.github.io/Awesome-books-Arturo-hermida-Axel-Soler)
+[Live Demo Link](https://axelsoler.github.io/Awesome-books-Arturo-hermida-Axel-Soler)
 
 
 ## Getting Started
