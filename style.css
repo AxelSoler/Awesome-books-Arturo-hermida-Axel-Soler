@@ -6,6 +6,13 @@ body {
   height: 100vh;
 }
 
+.topBar #date {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  font-size: 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;

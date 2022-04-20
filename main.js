@@ -71,3 +71,14 @@ contactBtn.addEventListener('click', () => {
     awesome.classList.remove('active');
 });
 
+let today = new Date();
+
+let date = (today.getMonth()+1)+'-'+today.getDate() + '-' + today.getFullYear();
+
+let hours = today.getHours() + ":" + today.getMinutes();
+
+let dateTime = date+', '+hours;
+
+const time = document.getElementById('date');
+
+time.innerHTML = dateTime;
