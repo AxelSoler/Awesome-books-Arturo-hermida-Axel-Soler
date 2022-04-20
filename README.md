@@ -9,8 +9,14 @@
 
 ## Live Demo (link webpage when Pull Request aproved and merge it)
 
-[Live Demo Link]((https://axelsoler.github.io/Awesome-books-Arturo-hermida-Axel-Soler)
+[Live Demo Link](https://axelsoler.github.io/Awesome-books-Arturo-hermida-Axel-Soler)
 
+## Project description
+
+Webpage used to add and store your awesome books
+- Add a new book 
+- List of awesome books
+- Contact section
 
 ## Getting Started
 

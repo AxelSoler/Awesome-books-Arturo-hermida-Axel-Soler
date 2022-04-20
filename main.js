@@ -2,6 +2,12 @@ import Book from './book.js';
 import Books from './books.js';
 
 const div = document.querySelector('.books');
+const awesome = document.querySelector('.awesome');
+const listBtn = document.getElementById('list');
+const formBtn = document.getElementById('add');
+const contactBtn = document.getElementById('contact');
+const divForm = document.querySelector('.addBook');
+const divContact = document.querySelector('.contact');
 const bookList = new Books();
 
 function display(bookObj) {
@@ -37,6 +43,7 @@ addBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
+  divForm.classList.add('active');
   bookList.books = JSON.parse(localStorage.getItem('listBooks' || '[]'));
   if (bookList.books === null) {
     bookList.books = [];
@@ -44,3 +51,33 @@ window.addEventListener('load', () => {
   }
   bookList.books.forEach((book) => display(book));
 });
+
+listBtn.addEventListener('click', () => {
+  awesome.classList.add('active');
+  divForm.classList.remove('active');
+  divContact.classList.remove('active');
+});
+
+formBtn.addEventListener('click', () => {
+  divForm.classList.add('active');
+  awesome.classList.remove('active');
+  divContact.classList.remove('active');
+});
+
+contactBtn.addEventListener('click', () => {
+  divContact.classList.add('active');
+  divForm.classList.remove('active');
+  awesome.classList.remove('active');
+});
+
+const today = new Date();
+
+const date = `${today.getMonth() + 1}-${today.getDate()}-${today.getFullYear()}`;
+
+const hours = `${today.getHours()}:${today.getMinutes()}`;
+
+const dateTime = `${date}, ${hours}`;
+
+const time = document.getElementById('date');
+
+time.innerHTML = dateTime;

@@ -8,24 +8,52 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="topBar">
+    <nav class="navBar">
+      <h3>Awesome Books</h3>
+      <div class="ulItems">
+        <ul>
+          <li class="links"><a href="#awesome" id="list">List</a></li>
+          <li class="links"><a href="#addbook" id="add">Add new</a></li>
+          <li class="links"><a href="#contact2" id="contact">Contact</a></li>
+        </ul>
+      </div>      
+    </nav>
+    <div id="date"></div>
+  </div>
   <div class="container">
-    <h1>Awesome Books</h1>
+    <div class="awesome" id="awesome">
+    <h1 class="subtitle">All Awesome Books</h1>
 
     <div class="books"></div>
+  </div>
 
-    <form class="addBook">
-      <hr>
+    <form class="addBook" id="addbook">
       <h2 class="subtitle">Add a new book</h2>
       <input class="inputTitle" type="text" placeholder="Title">
       <input class="inputAuthor" type="text" placeholder="Author">
       <button id="addBtn" class="add" type="button">Add</button>
     </form>
-
-    <div id="msg">
-      <pre></pre>
+    <div class="contact" id="contact2">
+      <h2 class="subtitle">Contact information</h2>
+      <p>Do you have any questions or you just want to say "hello"? </p>
+      <div class="reach">
+      <h3>You can reach out to us!</h3>
+      <ul class="contact-list">
+        <li>Our email: xxx@gmail.com</li>
+        <li>Our phone number: 861654984614</li>
+        <li>Our address: local house</li>
+      </ul>
     </div>
-
   </div>
+  </div>
+
+  
+  <footer>
+    <div>
+      <h3>Copyright ...</h3>
+    </div>
+  </footer>
 
   <script type="module" src="./main.js"></script>
   
